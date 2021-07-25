@@ -7,8 +7,8 @@
     <ProjectGuid>{34A12114-6955-486C-9C8E-C25B2B8FD846}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AddEnvPath</RootNamespace>
-    <AssemblyName>AddEnvPath</AssemblyName>
+    <RootNamespace>CmdletEnvPath</RootNamespace>
+    <AssemblyName>CmdletEnvPath</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
