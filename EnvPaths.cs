@@ -180,6 +180,7 @@ namespace EnvPath
             return vs;
         }
 
+
         /// <summary>
         /// Rewrite the tostring for formatting the paths to string with split character - ';'.
         /// </summary>

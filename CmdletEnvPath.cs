@@ -13,12 +13,21 @@ namespace CmdletEnvPath
     public class AddEnvPath : Cmdlet
     {
 
-        [Parameter(Mandatory = true, Position = 0, ValueFromPipeline = true)]
+        [Parameter(
+            Mandatory = true, 
+            Position = 0, 
+            ValueFromPipeline = true)]
         public string Path { get; set; }
 
         [Parameter]
         [Alias("Target")]
         public EnvironmentVariableTarget EnvVarTarget { get; set; }
+
+        /// <summary>
+        /// if switch,no output.
+        /// </summary>
+        [Parameter]
+        public SwitchParameter Quiet { get; set; }
 
         public AddEnvPath()
             : base()
@@ -42,7 +51,10 @@ namespace CmdletEnvPath
             {
                 if (envPath.AddPath(Path) != string.Empty)
                 {
-                    WriteObject(envPath.SavePaths());
+                    if (Quiet)
+                        envPath.SavePaths();
+                    else
+                        WriteObject(envPath.SavePaths());
                 }
             }
         }
