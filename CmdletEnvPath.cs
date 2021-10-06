@@ -103,6 +103,9 @@ namespace CmdletEnvPath
         [Alias("Target")]
         public EnvironmentVariableTarget EnvVarTarget { get; set; }
 
+        [Parameter]
+        public SwitchParameter Quiet { get; set; }
+
         public RemoveEnvPath()
             : base()
         {
@@ -121,11 +124,15 @@ namespace CmdletEnvPath
             {
                 envPath.RemovePath(Path);
                 envPath.SavePaths();
-                WriteObject(envPath.GetPaths());
+                if(!Quiet)
+                    WriteObject(envPath.GetPaths());
             }
             else
             {
-                WriteObject(envPath.GetPaths());
+                if(!Quiet)
+                {
+                    WriteObject(envPath.GetPaths());
+                }
             }
         }
         protected override void EndProcessing()
