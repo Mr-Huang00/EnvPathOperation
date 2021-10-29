@@ -218,6 +218,21 @@ namespace EnvPath
             }
             return false;
         }
+
+        /// <summary>
+        /// Find the path in specified Environment Path Variable (in registry).
+        /// </summary>
+        /// <param name="path"></param>
+        /// <param name="target"></param>
+        /// <returns></returns>
+        static public bool ExistsIn(string path,EnvironmentVariableTarget target)
+        {
+            if (GetEnvPaths(target).GetPath(path) != string.Empty || GetEnvPaths(target).GetPath(path) != string.Empty)
+            {
+                return true;
+            }
+            return false;
+        }
         /// <summary>
         /// Valiadate the path ,it should be rooted and windows style.
         /// </summary>

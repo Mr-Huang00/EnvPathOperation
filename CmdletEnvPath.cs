@@ -45,7 +45,8 @@ namespace CmdletEnvPath
             var envPath = EnvPaths.GetEnvPaths(EnvVarTarget);
             if(EnvPaths.ExistsInUserAndMachine(Path))
             {
-                WriteObject(envPath.GetPaths());
+                if(!Quiet)
+                    WriteObject($"{"Warning : The path is existed in machine/user path,so it will not be written."}{Environment.NewLine}{envPath.GetPaths()}");
             }
             else
             {
@@ -54,7 +55,7 @@ namespace CmdletEnvPath
                     if (Quiet)
                         envPath.SavePaths();
                     else
-                        WriteObject(envPath.SavePaths());
+                        WriteObject($"{envPath.SavePaths()}");
                 }
             }
         }
